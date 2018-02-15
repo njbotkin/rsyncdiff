@@ -1,6 +1,6 @@
 ## rsyncdiff
 
-Quick n' dirty 2 way diffs with rsync.
+Use bidirectional rsync and pretty formatting for quick filesystem diffs.
 
 `$ rsyncdiff --help`
 
