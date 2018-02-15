@@ -30,8 +30,11 @@ It will only tell you
 
 ### How does it do it?
 
-`rsync [from] [to] -crlinz`
-`rsync [to] [from] -curlinz` 
+
+```
+rsync [from] [to] -crlinz
+rsync [to] [from] -curlinz
+```
 
 ### Pretty output:
 
