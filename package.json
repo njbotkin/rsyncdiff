@@ -1,0 +1,21 @@
+{
+  "name": "rsyncdiff",
+  "version": "1.0.0",
+  "description": "Use bidirectional rsync and pretty formatting for quick filesystem diffs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "rsyncdiff": "cli.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.3.1",
+    "commander": "^2.14.1",
+    "parse-gitignore": "^0.4.0",
+    "pify": "^3.0.0",
+    "runjs": "^4.3.0"
+  }
+}
