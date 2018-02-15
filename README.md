@@ -21,6 +21,10 @@ Use bidirectional rsync and pretty formatting for quick filesystem diffs.
     $ rsyncdiff localpath user@host:~/remotepath
 ```
 
+### Install
+
+Not on npm yet, sorry.  Clone repo and run `npm link` inside of it.
+
 ### How good is it?
 
 It will only tell you
