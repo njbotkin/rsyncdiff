@@ -34,6 +34,7 @@ It will only tell you
 
 ### How does it do it?
 
+Dry-run rsync both ways. (-n is dry run)
 
 ```
 rsync [from] [to] -crlinz
