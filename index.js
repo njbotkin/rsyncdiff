@@ -5,15 +5,17 @@ const { exec } = pify(require(`child_process`))
 const terminalWidth = (process.stdout && process.stdout.columns) ? process.stdout.columns : 80
 
 module.exports = {
-	diff: (local, remote, { exclude = [] }) => {
+	diff: (local, remote, { exclude = [], rsh }) => {
+		rsh = rsh ? `-e "` + rsh + `"` : ``
+
 		exclude = exclude.reduce((a, e) => a + ` --exclude "` + e + `"`, ``)
 
 		const flags = `-crlinz` // matches ALL different files
 		const reverse_flags = `-curlinz` // only matches files on remote that are newer
 
 		return Promise.all([
-			exec(`rsync ` + local + ` ` + remote + ` ` + exclude + ` ` + flags),
-			exec(`rsync ` + remote + ` ` + local + ` ` + exclude + ` ` + reverse_flags),
+			exec(`rsync ` + rsh + ` ` + local + ` ` + remote + ` ` + exclude + ` ` + flags),
+			exec(`rsync ` + rsh + ` ` + remote + ` ` + local + ` ` + exclude + ` ` + reverse_flags),
 		])
 			.then(res => {
 				console.log(`\n key:  ` + chalk.bgCyan(`  `) + chalk.bold.cyan(` new  `) + chalk.bgYellow(`  `) + chalk.bold.yellow(` newer `) + `\n`)
